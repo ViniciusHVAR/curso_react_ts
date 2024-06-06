@@ -1,18 +1,30 @@
-import { useNavigate } from "react-router-dom";
-
+import { useState } from "react";
 
 export const Login = () => {
-    const history = useNavigate();
 
-    const handleClick = () => {
-        history("/pagina-inicial")
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleEntrar = () => {
+
     }
 
     return (
         <div>
-            Login
+            <form>
+                <label>
+                    <span>Email</span>
+                    <input value={email} onChange = {e => setEmail(e.target.value)} />
+                </label>
+                <label>
+                    <span>Senha</span>
+                    <input value={password} onChange = {e => setPassword(e.target.value)} />
+                </label>
 
-            <button onClick = {handleClick}>Página Inicial</button>
+                <button type = "button" onClick = {handleEntrar}>
+                    Entrar
+                </button>
+            </form>
         </div>
     );
 }
